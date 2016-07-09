@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/globals/youtube/index.d.ts" />
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
@@ -7,42 +9,42 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   styleUrls: ['video-player.component.css']
 })
 export class VideoPlayerComponent implements AfterViewInit, OnInit {
-  public benny: any;
-
+  benny;
+  player;
   constructor() {}
 
   ngOnInit() {
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'M7lc1UVf-VE',
-          events: {
-            'onReady': this.onPlayerReady
-          }
-        });
-      } 
+    this.benny = document.querySelector('.benny-theme');
+    this.benny.volume = 0.5;
+    this.benny.load();
+  }
+
+  onYouTubeIframeAPIReady() {
+    this.player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: '2nCJZ3x4zss',
+      events: {
+        'onReady': this.onPlayerReady,
+        'onStateChange': this.stateChange.bind(this)
+      },
+    });
+  }
+
+  stateChange(event) {
+    if (event.data === 1) {
+      this.benny.play();
+    }
+    else if (event.data === 2) {
+      this.benny.pause();
+    }
   }
 
   ngAfterViewInit() {
-    this.benny = document.querySelector('.benny-theme');
-    this.benny.volume = 0.5;
-    // this.benny.play();
+    this.onYouTubeIframeAPIReady();
   }
+
   onPlayerReady(event) {
-    event.target.playVideo();
-  }
-
-  play() {
-    this.benny.play();
-  }
-
-  stop() {
-    this.benny.load();
+    event.target.setPlaybackRate(3).setVolume(0).playVideo();
   }
 }

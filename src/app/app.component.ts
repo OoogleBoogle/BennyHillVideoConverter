@@ -9,5 +9,5 @@ import { VideoPlayerComponent } from './shared';
   directives: [VideoPlayerComponent]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Benny Hill Video Converter';
 }
