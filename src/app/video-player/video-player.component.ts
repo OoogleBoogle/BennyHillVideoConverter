@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/globals/youtube/index.d.ts" />
 
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -9,9 +9,10 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   styleUrls: ['video-player.component.css']
 })
 export class VideoPlayerComponent implements AfterViewInit, OnInit {
+  @Input() videoId;
+  @Output() closeVideo = new EventEmitter<boolean>();
   benny;
   player;
-  constructor() {}
 
   ngOnInit() {
     this.benny = document.querySelector('.benny-theme');
@@ -23,7 +24,7 @@ export class VideoPlayerComponent implements AfterViewInit, OnInit {
     this.player = new YT.Player('player', {
       height: '390',
       width: '640',
-      videoId: '2nCJZ3x4zss',
+      videoId: this.videoId,
       events: {
         'onReady': this.onPlayerReady,
         'onStateChange': this.stateChange.bind(this)
@@ -38,6 +39,10 @@ export class VideoPlayerComponent implements AfterViewInit, OnInit {
     else if (event.data === 2) {
       this.benny.pause();
     }
+  }
+
+  close(x: boolean) {    
+    this.closeVideo.emit(x);
   }
 
   ngAfterViewInit() {

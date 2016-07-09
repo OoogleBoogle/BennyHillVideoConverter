@@ -1,0 +1,16 @@
+<form (submit)="getResults(searchTerm.value)" class="search">
+  <input #searchTerm type="text" placeholder="Search...">
+  <button type="submit">Search</button>
+</form>
+
+<div class="search-results">
+  <div class="videoThumb" *ngFor="let video of videos"  (click)="playVideo(info.value)">
+    <input #info [value]="video.id.videoId" hidden>
+    <img [src]="video.snippet.thumbnails.medium.url">
+    <p>{{video.snippet.title}}</p>
+  </div>
+</div>
+
+<div *ngIf="showVideo">
+  <app-video-player [videoId]="youtubeId" (closeVideo)="closedVideo($event)"></app-video-player>
+</div>
