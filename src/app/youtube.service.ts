@@ -9,7 +9,7 @@ export class YoutubeService {
 
   getVideos(searchTerm) {
     const API_KEY = "AIzaSyCsBZpMT5Q91vGuILDMIblPcVWcn50JVyI";
-    let baseUrl = "https://www.googleapis.com/youtube/v3/search?";
+    let baseUrl = "https://www.googleapis.com/youtube/v3/search?maxResults=10&";
     baseUrl += `part=snippet&order=viewCount&q=${searchTerm}`;
     baseUrl += `&type=video&videoDefinition=high&key=${API_KEY}`;
     return this.http.get(baseUrl)
