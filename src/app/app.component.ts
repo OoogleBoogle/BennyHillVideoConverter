@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VideoPlayerComponent, SearchPageComponent } from './shared';
+import { SearchPageComponent } from './shared';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 
@@ -8,10 +8,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [VideoPlayerComponent, SearchPageComponent],
+  directives: [SearchPageComponent],
   providers: [HTTP_PROVIDERS]
 })
-export class AppComponent {
-  title = 'Benny Hill Video Converter';
-}
+export class AppComponent {}

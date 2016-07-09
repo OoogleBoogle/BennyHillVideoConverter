@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { YoutubeService } from '../youtube.service';
 import { VideoPlayerComponent } from '../shared';
 import { Observable } from 'rxjs'
@@ -11,22 +11,16 @@ import { Observable } from 'rxjs'
   providers: [YoutubeService],
   directives: [VideoPlayerComponent]
 })
-export class SearchPageComponent implements OnInit {
+export class SearchPageComponent {
   public videos = [];
   public youtubeId = null;
   public showVideo: boolean;
 
-  constructor(
-    private YTcall: YoutubeService) {}
-
-  ngOnInit() {
-
-  }
+  constructor(private YTcall: YoutubeService) {}
 
   getResults(searchTerm) {
 	  this.YTcall.getVideos(searchTerm)
       .then(result => {
-        console.log(result);
         this.videos = result;
       })
       .catch(err => console.log(err));
