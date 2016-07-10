@@ -1,6 +1,12 @@
 /// <reference path="../../../typings/globals/youtube/index.d.ts" />
 
-import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, 
+         OnInit, 
+         AfterViewInit, 
+         Input, 
+         Output, 
+         EventEmitter } from '@angular/core';
+
 
 @Component({
   moduleId: module.id,
@@ -9,7 +15,7 @@ import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@
   styleUrls: ['video-player.component.css']
 })
 export class VideoPlayerComponent implements AfterViewInit, OnInit {
-  @Input() videoId;
+  @Input() videoId: string;
   @Output() closeVideo = new EventEmitter<boolean>();
   benny;
   player;

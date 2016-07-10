@@ -4,7 +4,12 @@
   <button type="submit">Search</button>
 </form>
 
-<div class="search-results">
+<div *ngIf="videos.length === 0" class="welcome">
+  <h3>Use the search bar above to discover that all videos are better in a Benny Hill Style</h3>
+  <h4>If you need inspiration, general fails work well but personally I'm a fan of the horror movie chase scenes.</h4>
+</div>
+
+<div *ngIf="videos.length !== 0" class="search-results">
   <div class="video-thumb" *ngFor="let video of videos"  (click)="playVideo(info.value)">
     <input #info [value]="video.id.videoId" hidden>
     <img [src]="video.snippet.thumbnails.medium.url">

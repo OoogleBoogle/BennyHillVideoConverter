@@ -29,3 +29,7 @@
     background-color: rgba(250, 0, 0, 0.2);
     color: green;
 }
+
+.vid-wrapper {
+    width: 100vw;
+}
