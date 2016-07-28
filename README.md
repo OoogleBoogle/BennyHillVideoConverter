@@ -4,7 +4,7 @@ This is only my second application build with Angular 2, the first being a [simp
 
 ### Issues.
 
-As a desktop only site this works fine. However, the YouTube API doesn't allow for increasing the speed of the video in mobile browsers and the custom music only plays in the dev version of chrome mobile. This, unfortunately, of kills the spirit of the app.
+As a desktop only site this works fine. However, the YouTube API doesn't allow for increasing the speed of the video in mobile browsers and the custom music only plays in the dev version of chrome mobile. This, unfortunately, kinda of kills the spirit of the app.
 
 ### Hosting.
 
