@@ -4,7 +4,7 @@ Just for a laugh....
 
 ### Issues.
 
-1. Currently the audio (about 3mb) is being downloaded into memory...not ideal, especially for mobiles. Need to transfer this to reading from the server. 
+As a desktop only site this works fine. However, the YouTube API doesn't allow for increasing the speed of the video in mobile browsers and the custom music only plays in the dev version of chrome mobile. This, unfortunately, of kills the spirit of the app.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.9.
 
